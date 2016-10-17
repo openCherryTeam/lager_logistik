@@ -1,0 +1,311 @@
+2016-10-17 17:48:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42102-192]
+2016-10-17 17:51:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Unbekannter Datentyp: "VARCHER"
+Unknown data type: "VARCHER"; SQL statement:
+CREATE TABLE article
+(
+   user_id serial NOT NULL,
+   user_name varchar(50) NOT NULL,
+   user_email varcher(50),
+   password_salt text NOT NULL,
+   password_md5 text NOT NULL,
+   PRIMARY KEY (user_id)
+) [50004-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4079)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3937)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5972)
+	at org.h2.command.Parser.parseCreate(Parser.java:4237)
+	at org.h2.command.Parser.parsePrepared(Parser.java:362)
+	at org.h2.command.Parser.parse(Parser.java:317)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.prepareCommand(Parser.java:254)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:52:14 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "ARTICLE" besteht bereits
+Table "ARTICLE" already exists; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42101-192]
+2016-10-17 17:52:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42102-192]
+2016-10-17 17:53:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "USER_ID" nicht gefunden
+Column "USER_ID" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:53:38 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "USER_ID" nicht gefunden
+Column "USER_ID" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(USER_ID ),
+   PRIMARY KEY (article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:55:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "USER_ID" nicht gefunden
+Column "USER_ID" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES public.user(user_id),
+   PRIMARY KEY (article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:55:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax Fehler in SQL Befehl "CREATE TABLE ARTICLE
+(
+   ARTICLE_ID SERIAL NOT NULL ,
+   ARTICLE_NO VARCHAR(50) NOT NULL,
+   ARTICLE_DESC VARCHAR(50) NOT NULL,
+   FOREIGN KEY (USER_ID) REFERENCES USER(USER_ID)
+   PRIMARY[*] KEY (ARTICLE_ID)
+) "; erwartet "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"
+Syntax error in SQL statement "CREATE TABLE ARTICLE
+(
+   ARTICLE_ID SERIAL NOT NULL ,
+   ARTICLE_NO VARCHAR(50) NOT NULL,
+   ARTICLE_DESC VARCHAR(50) NOT NULL,
+   FOREIGN KEY (USER_ID) REFERENCES USER(USER_ID)
+   PRIMARY[*] KEY (ARTICLE_ID)
+) "; expected "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id)
+   PRIMARY KEY (article_id)
+) [42001-192]
+2016-10-17 17:55:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "USER_ID" nicht gefunden
+Column "USER_ID" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:56:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "USER_ID" nicht gefunden
+Column "USER_ID" not found; SQL statement:
+CREATE TABLE date
+(
+   date_id serial NOT NULL ,
+   best_before_date Datetime NOT NULL,
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   FOREIGN KEY (article_id) REFERENCES article(article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:56:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "ARTICLE_ID" nicht gefunden
+Column "ARTICLE_ID" not found; SQL statement:
+CREATE TABLE date
+(
+   date_id serial NOT NULL ,
+   best_before_date Datetime NOT NULL,
+   FOREIGN KEY (article_id) REFERENCES article(article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-10-17 17:59:21 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "ARTICLE" besteht bereits
+Table "ARTICLE" already exists; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (fk_user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42101-192]
+2016-10-17 17:59:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Feld "FK_USER_ID" nicht gefunden
+Column "FK_USER_ID" not found; SQL statement:
+CREATE TABLE article
+(
+   article_id serial NOT NULL ,
+   article_no varchar(50) NOT NULL,
+   article_desc varchar(50) NOT NULL,
+   FOREIGN KEY (fk_user_id) REFERENCES user(user_id),
+   PRIMARY KEY (article_id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
